@@ -1,0 +1,32 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+//Load Datasset from Local Directory
+
+from google.colab import files
+uploded =files.upload()
+
+//Load Dataset
+
+dataset =pd.read_csv('dataset.csv')
+
+//Summarize dataset
+
+print(dataset.shape)
+print(dataset.head(5))
+
+//Segregate dataset into the x and y
+
+x=dataset.iloc[:,:-1].values
+x
+
+y=dataset.iloc[:,-1].values
+y
+
+
+
+//Splitting Dataset for testing our Model
+
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test= train_test_split(x,y,test_size=0.20,random_state=0)
